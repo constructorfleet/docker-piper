@@ -6,6 +6,7 @@ FROM ghcr.io/linuxserver/baseimage-ubuntu:noble
 ARG BUILD_DATE
 ARG VERSION
 ARG PIPER_VERSION
+ARG ONNXRUNTIME_GPU_VERSION="1.24.3"
 LABEL build_version="Linuxserver.io version:- ${VERSION} Build-date:- ${BUILD_DATE}"
 LABEL maintainer="thespad"
 
@@ -30,9 +31,10 @@ RUN \
     "nvidia-cudnn-cu12>=9.0,<10.0" \
     nvidia-cufft-cu12 \
     nvidia-curand-cu12 \
-    onnxruntime-gpu \
+    "onnxruntime-gpu==${ONNXRUNTIME_GPU_VERSION}" \
     piper-tts \
     "wyoming-piper==${PIPER_VERSION}" && \
+  pip install -U --no-cache-dir --no-deps --force-reinstall "onnxruntime-gpu==${ONNXRUNTIME_GPU_VERSION}" && \
   printf "Linuxserver.io version: ${VERSION}\nBuild-date: ${BUILD_DATE}" > /build_version && \
   echo "**** cleanup ****" && \
   rm -rf \

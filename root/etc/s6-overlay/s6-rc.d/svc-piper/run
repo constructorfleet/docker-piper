@@ -19,4 +19,5 @@ exec \
         --data-dir /config \
         --download-dir /config \
         ${UPDATE_MODELS:+--update-voices} \
+        --sentence-silence "${PIPER_SENTENCE_SILENCE:-0.3}" \
         ${NO_STREAMING:+--no-streaming}

@@ -30,5 +30,6 @@ exec \
         --download-dir /config \
         --use-cuda \
         ${UPDATE_MODELS:+--update-voices} \
+        --sentence-silence "${PIPER_SENTENCE_SILENCE:-0.3}" \
         ${NO_STREAMING:+--no-streaming} \
         ${PIPER_DEBUG:+--debug}

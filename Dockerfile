@@ -6,7 +6,7 @@ FROM ghcr.io/linuxserver/baseimage-ubuntu:noble
 ARG BUILD_DATE
 ARG VERSION
 ARG PIPER_VERSION
-ARG ONNXRUNTIME_GPU_VERSION="1.24.3"
+ARG ONNXRUNTIME_GPU_VERSION="1.24.4"
 LABEL build_version="Linuxserver.io version:- ${VERSION} Build-date:- ${BUILD_DATE}"
 LABEL maintainer="thespad"
 
